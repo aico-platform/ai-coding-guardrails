@@ -1,0 +1,31 @@
+---
+description: Mandatory verification loop and validation evidence for every code change.
+alwaysApply: true
+---
+
+# Testing and Validation
+
+## Verification loop (mandatory)
+
+For any code change, before claiming completion:
+
+1. Run the repo's lint, typecheck, and test commands (adapt to this repo, e.g. `make lint && make typecheck && make test`, or `pnpm lint && pnpm typecheck && pnpm test`, or the project's documented equivalents).
+2. For web/frontend changes: also run the production build.
+3. If any command fails: fix and re-run until green. Report what failed and what was fixed.
+4. Report the exact commands and results in the **Evidence** section of the output.
+
+## Decision table
+
+| Situation | Required action |
+| --- | --- |
+| Tests exist for the touched code | Run them; add cases for new behavior |
+| No tests exist for the touched code | State "no reliable validation exists"; write tests first or explicitly disclose the gap — never claim success |
+| Fixing a bug | Reproduce with a failing test first, then fix, then confirm the test passes (regression coverage) |
+| A test fails after the change | Never delete, skip, or weaken the test to get green; fix the code or escalate |
+| Validation cannot run in this environment | Say so explicitly in Evidence; list the exact commands the human should run |
+
+## Evidence rules
+
+- Evidence is **literal**: exact commands, real output excerpts. "Tests pass" without the command is not evidence.
+- Never summarize a failure as a pass. Red output goes in the report as red.
+- Logic changes require test changes. A diff that changes behavior with zero test modifications is incomplete by default.
