@@ -28,7 +28,8 @@ The installer copies files into your repo, never overwrites anything that exists
 <summary>Prefer to install manually?</summary>
 
 ```bash
-cp CLAUDE.md AGENTS.md /path/to/your-repo/
+cp claude/CLAUDE.md /path/to/your-repo/CLAUDE.md
+cp AGENTS.md /path/to/your-repo/AGENTS.md
 mkdir -p /path/to/your-repo/.claude/commands && cp claude/commands/*.md /path/to/your-repo/.claude/commands/
 mkdir -p /path/to/your-repo/.cursor/rules && cp cursor/rules/*.mdc /path/to/your-repo/.cursor/rules/
 mkdir -p /path/to/your-repo/docs && cp shared/*.md /path/to/your-repo/docs/
@@ -50,9 +51,10 @@ A guarded agent reports **Risk: Low** and answers in the Result / Evidence / Ris
 ## What's inside
 
 ```
-CLAUDE.md                          Core instruction file (Claude Code)
-AGENTS.md                          Same contract for Codex, Cursor CLI, and
+AGENTS.md                          The contract for Codex, Cursor CLI, and
                                    any AGENTS.md-compatible agent
+claude/
+  CLAUDE.md                        Core instruction file (Claude Code)
 claude/commands/
   plan-change.md                     /plan-change — plan before code
   review-diff.md                     /review-diff — adversarial self-review

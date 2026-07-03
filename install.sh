@@ -40,7 +40,7 @@ install_file() { # src dst
 }
 
 bold "Installing..."
-install_file "$tmp/CLAUDE.md" "CLAUDE.md"
+install_file "$tmp/claude/CLAUDE.md" "CLAUDE.md"
 install_file "$tmp/AGENTS.md" "AGENTS.md"
 for f in "$tmp"/claude/commands/*.md; do
   install_file "$f" ".claude/commands/$(basename "$f")"
