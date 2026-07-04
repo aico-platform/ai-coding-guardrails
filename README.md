@@ -52,7 +52,10 @@ A guarded agent reports **Risk: Low** and answers in the Result / Evidence / Ris
 
 ## See it in action
 
-The [guardrails-demo](https://github.com/aico-platform/guardrails-demo) repo is a tiny Python payment-retry service with this pack installed and a real [dogfood transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/dogfood-transcript.md) — including an agent stopping on a **High**-risk billing refactor until a human approves.
+The [guardrails-demo](https://github.com/aico-platform/guardrails-demo) repo is a tiny Python payment-retry service with this pack installed and real dogfood transcripts:
+
+- [Guardrails transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/dogfood-transcript.md) — agent stops on a **High**-risk billing refactor until a human approves
+- [Team OS transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/team-os-dogfood-transcript.md) — full **8-role chain** on charge dry-run (Team tier)
 
 ## What's inside
 
