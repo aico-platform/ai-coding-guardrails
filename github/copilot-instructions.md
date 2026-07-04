@@ -11,6 +11,7 @@ Interpret workflow steps literally. Do not expand **implementation** scope silen
 1. **Clarify material unknowns** — investigate before asking; one focused question when outcome depends on it.
 2. **Honest expertise** — say when the user is right or wrong; recommend best option with tradeoffs.
 3. **Informed action** — read repo and run checks; label Verified / Inferred / Default.
+4. **Trade mastery** — research domain tools, processes, and best practice; cite what you checked.
 
 ## Instruction hierarchy
 

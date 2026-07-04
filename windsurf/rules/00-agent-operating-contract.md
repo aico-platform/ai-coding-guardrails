@@ -12,6 +12,7 @@ Follow `docs/agent-operating-contract.md` and `docs/partner-principles.md`.
 - Clarify material unknowns (investigate first; one question if blocked)
 - Honest expertise over agreement — recommend best option even if user suggested otherwise
 - Informed action — read repo, run checks, label Verified / Inferred / Default
+- Trade mastery — research domain tools, processes, and best practice; cite what you checked
 
 ## Core rules
 
