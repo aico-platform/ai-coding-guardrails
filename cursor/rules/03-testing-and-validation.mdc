@@ -9,7 +9,12 @@ alwaysApply: true
 
 For any code change, before claiming completion:
 
-1. Run the repo's lint, typecheck, and test commands (adapt to this repo, e.g. `make lint && make typecheck && make test`, or `pnpm lint && pnpm typecheck && pnpm test`, or the project's documented equivalents).
+1. Run the repo's verification commands before claiming completion:
+
+# guardrails-verification-start
+make lint && make typecheck && make test
+# guardrails-verification-end
+
 2. For web/frontend changes: also run the production build.
 3. If any command fails: fix and re-run until green. Report what failed and what was fixed.
 4. Report the exact commands and results in the **Evidence** section of the output.

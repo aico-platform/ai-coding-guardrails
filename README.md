@@ -20,6 +20,8 @@ One command, from your repo root:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
+# with auto-detected lint/test commands:
+curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash -s -- --detect
 ```
 
 The installer copies files into your repo, never overwrites anything that exists, and tells you exactly what it did.

@@ -5,6 +5,7 @@ set -euo pipefail
 #
 # Usage (from your repo root):
 #   curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
+#   curl -fsSL .../install.sh | bash -s -- --detect   # install + configure verification commands
 #
 # Copies the guardrails into the current directory. Never overwrites
 # existing files; skipped files are reported so you can merge by hand.
@@ -12,6 +13,13 @@ set -euo pipefail
 REPO_TARBALL="https://github.com/aico-platform/ai-coding-guardrails/archive/refs/heads/main.tar.gz"
 
 bold() { printf '\033[1m%s\033[0m\n' "$1"; }
+
+DETECT=false
+for arg in "$@"; do
+  case "$arg" in
+    --detect) DETECT=true ;;
+  esac
+done
 
 if [ ! -d .git ]; then
   echo "note: current directory is not a git repo root — installing here anyway: $(pwd)"
@@ -52,14 +60,24 @@ for f in "$tmp"/shared/*.md; do
   install_file "$f" "docs/$(basename "$f")"
 done
 install_file "$tmp/github/pull_request_template.md" ".github/pull_request_template.md"
+install_file "$tmp/scripts/detect_stack.sh" "scripts/detect_stack.sh"
+install_file "$tmp/scripts/configure_verification.sh" "scripts/configure_verification.sh"
+chmod +x scripts/detect_stack.sh scripts/configure_verification.sh 2>/dev/null || true
 
 echo
 bold "Done: $installed installed, $skipped skipped (already existed)."
-echo
-echo "Next steps:"
-echo "  1. Open .cursor/rules/03-testing-and-validation.mdc and point the"
-echo "     example commands at your repo's lint/typecheck/test commands."
-echo "  2. Verify it works — ask your agent:"
-echo "       \"Fix a typo in the README, then tell me the risk level"
-echo "        and show your evidence.\""
-echo "     A guarded agent reports Risk: Low with an Evidence section."
+
+if $DETECT; then
+  echo
+  bold "Detecting stack and configuring verification commands..."
+  bash scripts/configure_verification.sh
+else
+  echo
+  echo "Next steps:"
+  echo "  1. Auto-configure verification: bash scripts/configure_verification.sh"
+  echo "     (or re-run installer with: bash -s -- --detect)"
+  echo "  2. Verify it works — ask your agent:"
+  echo "       \"Fix a typo in the README, then tell me the risk level"
+  echo "        and show your evidence.\""
+  echo "     A guarded agent reports Risk: Low with an Evidence section."
+fi
