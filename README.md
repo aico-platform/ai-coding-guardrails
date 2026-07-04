@@ -55,7 +55,19 @@ A guarded agent reports **Risk: Low** and answers in the Result / Evidence / Ris
 The [guardrails-demo](https://github.com/aico-platform/guardrails-demo) repo is a tiny Python payment-retry service with this pack installed and real dogfood transcripts:
 
 - [Guardrails transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/dogfood-transcript.md) — agent stops on a **High**-risk billing refactor until a human approves
-- [Team OS transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/team-os-dogfood-transcript.md) — full **8-role chain** on charge dry-run (Team tier)
+- [Team OS transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/team-os-dogfood-transcript.md) — **8-role chain** on charge dry-run (demo used `install_team_os.sh --full`; **default install is 5 core roles**)
+
+### Agent Team OS (Pro/Team tier)
+
+Multi-role SDLC via `TEAM.md` — default **5 agents** (orchestrator, pm-planner, backend-dev, review role, doc-writer):
+
+```bash
+bash team-os/scripts/install_team_os.sh              # default core
+bash team-os/scripts/install_team_os.sh --full     # all 12 specialists
+bash team-os/scripts/install_team_os.sh --with frontend-dev,staff-security
+```
+
+See team-os/README.md after installing the Team/Pro pack (not included in MIT free core).
 
 ## What's inside
 

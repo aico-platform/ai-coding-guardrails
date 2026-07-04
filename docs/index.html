@@ -224,6 +224,7 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     <ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#demo" class="demo-link">Demo</a></li>
+      <li><a href="#team-os">Team OS</a></li>
       <li><a href="#inside">What's inside</a></li>
       <li><a href="#standard">The standard</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -337,6 +338,7 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
           <li><b>Task 1 — README typo:</b> Risk Low. One line changed. Evidence: <code>ruff check .</code> clean, <code>pytest</code> 4 passed.</li>
           <li><b>Task 2 — payment refactor:</b> Risk High. Plan posted. <b>No code touched</b> until the human said "approved, proceed".</li>
           <li><b>Task 3 — after approval:</b> Minimal 3-file diff. Evidence pasted verbatim — not "should work".</li>
+          <li><b>Team OS transcript</b> (Pro/Team tier): full <b>8-role chain</b> on charge dry-run — demo used <code>--full</code> install; <b>default is 5 core roles</b> (see below).</li>
           <li><b>Try it yourself:</b> clone the demo, install guardrails with one command, ask your agent the same prompts.</li>
         </ul>
         <div class="demo-cta">
@@ -346,6 +348,31 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="team-os">
+  <div class="wrap">
+    <p class="kicker">team tier · optional</p>
+    <h2>Agent Team OS — five roles by default.</h2>
+    <p class="lead">Guardrails gives you one disciplined agent. <b>Team OS</b> (Pro/Team pack) adds a multi-role SDLC in <code>TEAM.md</code> —
+    plan → build → review → document, with handoffs. <b>Default install ships 5 core roles</b>, not twelve — specialists are opt-in.</p>
+
+    <div class="grid" style="margin-top:28px">
+      <div class="card"><span class="ic">→</span><h3>Default (5 roles)</h3><p><code>orchestrator</code> · <code>pm-planner</code> · <code>backend-dev</code> · <code>qa-reviewer</code> · <code>doc-writer</code> — covers most epics.</p></div>
+      <div class="card"><span class="ic">+</span><h3>Full team (12)</h3><p>Add UX, architect, security, ML, frontend, release with <code>--full</code> or <code>--with role,role</code>.</p></div>
+    </div>
+
+    <div class="term" style="margin-top:28px;max-width:720px">
+      <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">install Team OS (after Guardrails)</span></div>
+      <div class="term-body"><span class="p">$</span> bash team-os/scripts/install_team_os.sh
+<span class="c"># default — 5 agents</span>
+<span class="p">$</span> bash team-os/scripts/install_team_os.sh --with frontend-dev,staff-security
+<span class="c"># core + specialists</span>
+<span class="p">$</span> bash team-os/scripts/install_team_os.sh --full
+<span class="c"># all 12 roles (demo transcript used this)</span></div>
+    </div>
+    <p class="price-hint" style="margin-top:16px">Team OS ships with the Pro/Team pack · free MIT core is Guardrails-only · <a href="https://github.com/aico-platform/guardrails-demo/blob/main/docs/team-os-dogfood-transcript.md">8-role demo transcript</a></p>
   </div>
 </section>
 
@@ -435,7 +462,8 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
       <div class="level"><span class="n">L1</span><span class="t">Structured rules</span><span class="d">Contract installed. Agents plan before code and report in the output format. — day one</span></div>
       <div class="level"><span class="n">L2</span><span class="t">Boundary safety</span><span class="d">Injection red-flags reported, risk classification on every change. — week one</span></div>
       <div class="level"><span class="n">L3</span><span class="t">Validation evidence</span><span class="d">No PR without exact commands + real results. Reviewers stop guessing. — week two</span></div>
-      <div class="level"><span class="n">L4</span><span class="t">CI release gate</span><span class="d">CI rejects PRs missing risk level or evidence. The gate is mechanical. — month two</span></div>
+      <div class="level"><span class="n">L4</span><span class="t">CI release gate</span><span class="d">CI rejects PRs missing risk, evidence, or documentation declaration. The gate is mechanical. — month two</span></div>
+      <div class="level"><span class="n">L4+</span><span class="t">Pack & link checks</span><span class="d">Optional: CI verifies pack doc refs and allowlisted URLs — reference dogfood repos. — month 2–3</span></div>
       <div class="level"><span class="n">L5</span><span class="t">Team audit loop</span><span class="d">Periodic review of agent PRs feeds lessons back into the rules. — ongoing</span></div>
     </div>
   </div>
@@ -500,6 +528,7 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     <div class="term">
       <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">install — 5 minutes</span></div>
       <div class="term-body"><span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
+<span class="p">$</span> <span class="c"># optional Team OS (Pro/Team): bash team-os/scripts/install_team_os.sh</span>
 <span class="p">$</span> <span class="c"># adapt verification commands · 1 file · 2 minutes</span>
 <span class="ok">✓ your agents are now under contract</span><span class="cursor"></span></div>
     </div>
