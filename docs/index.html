@@ -524,6 +524,11 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     <details>
       <summary>How do I get the full pack during beta?</summary>
       <p>Private beta only — we add your GitHub account to the invite team and you download the release zip. The public <code>curl install.sh</code> installs the <b>free core</b>, not Team OS or Pro-only rules. See <a href="https://github.com/aico-platform/guardrails-demo">guardrails-demo</a> for public behavior transcripts.</p>
+    </details>
+    <details>
+      <summary>Does this use a lot of tokens?</summary>
+      <p>Always-on rules add roughly <b>1–3k tokens (free)</b> or <b>3–6k tokens (Pro + Team OS)</b> per turn — modest on large context windows. The bigger cost is <b>structured behavior</b>: plans, evidence blocks, and multi-role handoffs. Mitigations: adopt rules gradually, use default 5-role Team OS (not <code>--full</code>) for daily work, keep evidence concise, prefer same-thread role switches. See <code>docs/token-and-context.md</code> in the Pro/Team pack.</p>
+    </details>
   </div>
 </section>
 
