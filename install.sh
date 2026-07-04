@@ -5,7 +5,8 @@ set -euo pipefail
 #
 # Usage (from your repo root):
 #   curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
-#   curl -fsSL .../install.sh | bash -s -- --detect   # install + configure verification commands
+#   curl -fsSL .../install.sh | bash -s -- --detect
+#   curl -fsSL .../install.sh | bash -s -- --detect --non-interactive
 #
 # Copies the guardrails into the current directory. Never overwrites
 # existing files; skipped files are reported so you can merge by hand.
@@ -15,9 +16,16 @@ REPO_TARBALL="https://github.com/aico-platform/ai-coding-guardrails/archive/refs
 bold() { printf '\033[1m%s\033[0m\n' "$1"; }
 
 DETECT=false
-for arg in "$@"; do
-  case "$arg" in
-    --detect) DETECT=true ;;
+INIT_EXTRA=()
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --detect) DETECT=true; shift ;;
+    --adapters|--non-interactive) INIT_EXTRA+=("$1"); shift ;;
+    --risk-paths)
+      INIT_EXTRA+=("$1" "${2:-}")
+      shift 2
+      ;;
+    *) shift ;;
   esac
 done
 
@@ -36,6 +44,7 @@ skipped=0
 
 install_file() { # src dst
   local src="$1" dst="$2"
+  if [ ! -f "$src" ]; then return; fi
   if [ -e "$dst" ]; then
     echo "  skip (exists): $dst"
     skipped=$((skipped + 1))
@@ -51,33 +60,37 @@ bold "Installing..."
 install_file "$tmp/claude/CLAUDE.md" "CLAUDE.md"
 install_file "$tmp/AGENTS.md" "AGENTS.md"
 for f in "$tmp"/claude/commands/*.md; do
-  install_file "$f" ".claude/commands/$(basename "$f")"
+  [ -f "$f" ] && install_file "$f" ".claude/commands/$(basename "$f")"
 done
 for f in "$tmp"/cursor/rules/*.mdc; do
-  install_file "$f" ".cursor/rules/$(basename "$f")"
+  [ -f "$f" ] && install_file "$f" ".cursor/rules/$(basename "$f")"
 done
 for f in "$tmp"/shared/*.md; do
-  install_file "$f" "docs/$(basename "$f")"
+  [ -f "$f" ] && install_file "$f" "docs/$(basename "$f")"
 done
 install_file "$tmp/github/pull_request_template.md" ".github/pull_request_template.md"
+install_file "$tmp/github/copilot-instructions.md" ".github/copilot-instructions.md"
+install_file "$tmp/windsurf/rules/00-agent-operating-contract.md" ".windsurf/rules/00-agent-operating-contract.md"
+install_file "$tmp/windsurf/.windsurfrules" ".windsurfrules"
 install_file "$tmp/scripts/detect_stack.sh" "scripts/detect_stack.sh"
 install_file "$tmp/scripts/configure_verification.sh" "scripts/configure_verification.sh"
-chmod +x scripts/detect_stack.sh scripts/configure_verification.sh 2>/dev/null || true
+install_file "$tmp/scripts/configure_context.sh" "scripts/configure_context.sh"
+install_file "$tmp/scripts/init.sh" "scripts/init.sh"
+install_file "$tmp/scripts/install_adapters.sh" "scripts/install_adapters.sh"
+install_file "$tmp/docs/guardrails-context.template.md" "docs/guardrails-context.template.md"
+chmod +x scripts/*.sh 2>/dev/null || true
 
 echo
 bold "Done: $installed installed, $skipped skipped (already existed)."
 
 if $DETECT; then
   echo
-  bold "Detecting stack and configuring verification commands..."
-  bash scripts/configure_verification.sh
+  bold "Running init (verification + repository context)..."
+  bash scripts/init.sh "${INIT_EXTRA[@]}"
 else
   echo
   echo "Next steps:"
-  echo "  1. Auto-configure verification: bash scripts/configure_verification.sh"
-  echo "     (or re-run installer with: bash -s -- --detect)"
-  echo "  2. Verify it works — ask your agent:"
-  echo "       \"Fix a typo in the README, then tell me the risk level"
-  echo "        and show your evidence.\""
-  echo "     A guarded agent reports Risk: Low with an Evidence section."
+  echo "  1. Full init: bash scripts/init.sh"
+  echo "     Or: curl ... | bash -s -- --detect"
+  echo "  2. Verify — ask your agent to fix a typo and show risk + evidence."
 fi

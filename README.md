@@ -80,7 +80,9 @@ github/
 | --- | --- |
 | **Claude Code** | `CLAUDE.md` + `.claude/commands/` |
 | **Cursor** | `.cursor/rules/*.mdc` |
-| **Codex CLI, Cursor CLI, Windsurf, Copilot coding agent** | `AGENTS.md` at repo root |
+| **GitHub Copilot** | `.github/copilot-instructions.md` |
+| **Windsurf** | `.windsurf/rules/` (+ legacy `.windsurfrules`) |
+| **Codex CLI, Cursor CLI, Copilot agent** | `AGENTS.md` at repo root |
 
 All three carry the same Agent Operating Contract, so a team mixing tools gets consistent agent behavior.
 
