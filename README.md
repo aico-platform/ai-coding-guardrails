@@ -48,6 +48,10 @@ Ask your agent:
 
 A guarded agent reports **Risk: Low** and answers in the Result / Evidence / Risk / Assumptions format. If it just says "done", the rules aren't loading.
 
+## See it in action
+
+The [guardrails-demo](https://github.com/aico-platform/guardrails-demo) repo is a tiny Python payment-retry service with this pack installed and a real [dogfood transcript](https://github.com/aico-platform/guardrails-demo/blob/main/docs/dogfood-transcript.md) — including an agent stopping on a **High**-risk billing refactor until a human approves.
+
 ## What's inside
 
 ```
