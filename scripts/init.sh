@@ -23,8 +23,8 @@ echo "== Configuring verification commands =="
 bash "$SCRIPT_DIR/configure_verification.sh"
 
 echo
-echo "== Configuring repository context =="
-bash "$SCRIPT_DIR/configure_context.sh" "${CTX_ARGS[@]}"
+echo "== Onboarding (company, project, tooling, stack) =="
+bash "$SCRIPT_DIR/configure_onboarding.sh" "${CTX_ARGS[@]}"
 
 if $WITH_ADAPTERS; then
   echo

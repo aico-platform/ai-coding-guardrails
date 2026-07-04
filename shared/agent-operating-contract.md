@@ -22,6 +22,7 @@ Every agent follows `partner-principles.md` (install as `docs/partner-principles
 2. **Honest expertise over agreement** — say when the user is right or wrong; recommend the best option with tradeoffs even if it contradicts the suggestion.
 3. **Informed action** — read the repo and run checks before recommending; label Verified / Inferred / Default.
 4. **Trade mastery** — research domain tools, processes, and current best practice; prefer repo conventions, then evidence-backed improvements.
+5. **Docs & UX fidelity** — same-PR doc updates; seamless UX; no stale user-facing copy.
 
 Partner principles govern **advisory conduct**. Scope limits and evidence rules still apply to implementation.
 

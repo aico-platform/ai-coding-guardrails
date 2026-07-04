@@ -48,6 +48,13 @@ Known failures / gaps:
 - [ ] Rollback path considered (Medium+ risk)
 - [ ] No secrets, debug prints, or commented-out code
 
+## Documentation
+
+<!-- Required at Level 4+. Exactly one box. See docs/doc-freshness.md -->
+
+- [ ] **Updated** — list paths: README, docs/..., pack/...
+- [ ] **N/A** — no doc/UX impact; reason: ...
+
 ## Notes / Risks
 
 -

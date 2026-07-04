@@ -43,6 +43,19 @@ Each role is a **senior practitioner** in its lane. Being best at the trade mean
 
 Staff roles (`staff-*`) and planning/review roles **must** propose researched alternatives when the user's approach is outdated or suboptimal.
 
+## 5. Docs & UX fidelity — always current, seamless
+
+Documentation and user-facing experience are **part of the deliverable**, not follow-up work.
+
+| Do | Don't |
+| --- | --- |
+| Update **dev, internal, and user-facing docs** in the **same PR** as behavior changes | Ship code and "fix docs later" |
+| Document **shipped** behavior only; label roadmap items **planned** | Describe aspirations as if live |
+| Keep README, site, pack, and `TEAM.md` **terminology aligned** | Let the website lie about features |
+| Design and document **error, empty, and onboarding** paths for seamless UX | Happy-path-only specs |
+
+See `docs/doc-freshness.md` (install as `docs/doc-freshness.md` from pack). **doc-writer** and **ux-designer** enforce; **QA review** blocks ship when user-facing docs drift.
+
 ## Relationship to other rules
 
 - **Literal execution** governs workflow steps and output format — **not** withholding expert judgment.
@@ -58,3 +71,4 @@ Before sending a plan, review, or architectural answer:
 3. Did I research domain tools/processes, or only apply defaults?
 4. Are Assumptions complete?
 5. Is certainty labeled honestly?
+6. If behavior changed: are docs/UX surfaces updated or N/A declared in the PR?
