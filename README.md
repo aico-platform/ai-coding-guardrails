@@ -14,7 +14,18 @@ AI agents write code fast — and claim success even faster. This pack is a set 
 
 It's plain markdown. No hosting, no telemetry, no lock-in — copy it into your repo and it works.
 
-## Install
+## Install (marketplace plugins)
+
+Distinct **MIT** plugins for each IDE (Pro + Team OS not included):
+
+| Platform | Path in repo | Contents |
+| --- | --- | --- |
+| **Cursor** | `marketplace/cursor/ai-coding-guardrails/` | `.mdc` rules + commands |
+| **Claude Code** | `marketplace/claude/ai-coding-guardrails/` | slash commands + contract skill |
+
+See [marketplace/SUBMISSION.md](marketplace/SUBMISSION.md) for listing status and submit checklist.
+
+## Install (repo copy)
 
 One command, from your repo root:
 

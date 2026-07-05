@@ -1,0 +1,23 @@
+{
+  "name": "aico-guardrails",
+  "owner": {
+    "name": "AICO Platform",
+    "email": "hello@aico.dev"
+  },
+  "metadata": {
+    "description": "AI Coding Guardrails — Claude Code plugin (MIT free core)",
+    "version": "1.2.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-coding-guardrails",
+      "source": "marketplace/claude/ai-coding-guardrails",
+      "description": "Slash commands and guardrails contract skill for Claude Code",
+      "version": "1.2.0",
+      "license": "MIT",
+      "homepage": "https://github.com/aico-platform/ai-coding-guardrails",
+      "repository": "https://github.com/aico-platform/ai-coding-guardrails",
+      "keywords": ["guardrails", "claude-code", "planning", "risk"]
+    }
+  ]
+}
