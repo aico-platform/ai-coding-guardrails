@@ -14,18 +14,44 @@ AI agents write code fast — and claim success even faster. This pack is a set 
 
 It's plain markdown. No hosting, no telemetry, no lock-in — copy it into your repo and it works.
 
-## Install (marketplace plugins)
+## Install (Cursor)
 
-Distinct **MIT** plugins for each IDE (Pro + Team OS not included):
+**Cursor Marketplace** (after listing): **Customize → Marketplace → AI Coding Guardrails**
 
-| Platform | Path in repo | Contents |
-| --- | --- | --- |
-| **Cursor** | `marketplace/cursor/ai-coding-guardrails/` | `.mdc` rules + commands |
-| **Claude Code** | `marketplace/claude/ai-coding-guardrails/` | slash commands + contract skill |
+Includes always-on `.mdc` rules plus `/plan-change` and `/review-diff` commands.
 
-See [marketplace/SUBMISSION.md](marketplace/SUBMISSION.md) for listing status and submit checklist.
+<details>
+<summary>Repo copy (works for any IDE)</summary>
 
-## Install (repo copy)
+```bash
+curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
+```
+
+</details>
+
+## Install (Claude Code)
+
+**Claude Code plugin** (after community listing):
+
+```text
+/plugin marketplace add aico-platform/ai-coding-guardrails
+/plugin install ai-coding-guardrails@aico-community
+```
+
+Includes slash commands and a `guardrails-contract` skill (no Cursor rules).
+
+<details>
+<summary>Repo copy (works for any IDE)</summary>
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
+```
+
+Copies `CLAUDE.md`, commands, and shared docs into your project.
+
+</details>
+
+## Install (repo copy — all tools)
 
 One command, from your repo root:
 

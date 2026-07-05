@@ -8,10 +8,11 @@ Pro + Team OS (multi-agent SDLC) is **not** included here; see private beta / fu
 
 After listing: **Cursor → Customize → Marketplace → AI Coding Guardrails**
 
-Or load locally from this directory for testing:
+Or load locally for testing:
 
 ```bash
-cp -R marketplace/cursor/ai-coding-guardrails ~/.cursor/plugins/local/ai-coding-guardrails
+git clone https://github.com/aico-platform/ai-coding-guardrails.git
+# Copy the Cursor plugin folder from the repo into ~/.cursor/plugins/local/ai-coding-guardrails
 ```
 
 ## What's included
@@ -36,6 +37,5 @@ curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/
 
 ## Links
 
-- [Public repo](https://github.com/aico-platform/ai-coding-guardrails)
+- [Public repo](https://github.com/aico-platform/ai-coding-guardrails#install-cursor)
 - [Demo transcripts](https://github.com/aico-platform/guardrails-demo)
-- [Submission checklist](marketplace/SUBMISSION.md)

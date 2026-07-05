@@ -15,7 +15,7 @@ After community listing:
 
 (Exact marketplace slug confirmed at submission.)
 
-Local test: add this repo as a custom marketplace pointing at `marketplace/claude/ai-coding-guardrails`.
+Local test: clone the public repo and add it as a custom Claude marketplace source.
 
 ## What's included
 
@@ -42,6 +42,5 @@ Then implement only after plan approval for High-risk paths.
 
 ## Links
 
-- [Public repo](https://github.com/aico-platform/ai-coding-guardrails)
+- [Public repo](https://github.com/aico-platform/ai-coding-guardrails#install-claude-code)
 - [Demo](https://github.com/aico-platform/guardrails-demo)
-- [Submit plugin](https://clau.de/plugin-directory-submission)

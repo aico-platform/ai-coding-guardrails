@@ -69,6 +69,24 @@ nav ul a{color:var(--text-dim)}
 nav ul a:hover{color:var(--green);text-decoration:none}
 nav ul a.demo-link{color:var(--amber)}
 nav ul a.demo-link:hover{color:var(--green)}
+.install-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+@media(max-width:820px){.install-grid{grid-template-columns:1fr}}
+.install-card{
+  border:1px solid var(--border);background:var(--bg-panel);padding:24px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.install-card.cursor{border-color:var(--green-dim)}
+.install-card.claude{border-color:#6b5b95}
+.install-card .platform{
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;
+}
+.install-card.cursor .platform{color:#5cff8a}
+.install-card.claude .platform{color:#c4b5fd}
+.install-card h3{font-size:18px;color:var(--green);font-family:var(--display);font-weight:400;line-height:1.1}
+.install-card .blurb{font-size:13.5px;color:var(--text-dim);flex:1}
+.install-card .term{margin:0;font-size:13px}
+.install-card .term-body{padding:14px 16px;min-height:auto;white-space:pre-wrap;font-size:12.5px;line-height:1.65}
+.install-card .btn{align-self:flex-start;font-size:13px;padding:10px 18px}
 @media(max-width:720px){nav ul{display:none}}
 
 /* ---------- hero ---------- */
@@ -223,6 +241,7 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     <span class="logo">&gt;_ guardrails<span class="blink">█</span></span>
     <ul>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#install">Install</a></li>
       <li><a href="#demo" class="demo-link">Demo</a></li>
       <li><a href="#team-os">Team OS</a></li>
       <li><a href="#inside">What's inside</a></li>
@@ -241,10 +260,10 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     validation evidence, self-review, and release gates to AI-assisted development.
     Copy it into your repo. Done in 5 minutes.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/aico-platform/ai-coding-guardrails">get it free →</a>
+      <a class="btn btn-primary" href="#install">install free →</a>
       <a class="btn btn-ghost" href="#demo">see the demo</a>
     </div>
-    <p class="price-hint">Free during beta · MIT core · no signup, no telemetry</p>
+    <p class="price-hint">MIT core · Cursor plugin or Claude Code plugin · no signup, no telemetry</p>
 
     <div class="term hero-term">
       <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">agent — your-repo</span></div>
@@ -304,6 +323,50 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
 <span class="ok">You review a provable change.</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <p class="kicker">install</p>
+    <h2>Cursor or Claude Code — your pick.</h2>
+    <p class="lead">Two MIT plugins, built for each IDE. Same operating contract — different packaging.
+    Pro + Team OS stays invite-only; these listings are the free core only.</p>
+
+    <div class="install-grid">
+      <div class="install-card cursor">
+        <p class="platform">Cursor</p>
+        <h3>Rules + commands</h3>
+        <p class="blurb">Always-on <code>.mdc</code> guardrails plus <code>/plan-change</code> and <code>/review-diff</code> workflows in Cursor's agent.</p>
+        <div class="term">
+          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">cursor marketplace</span></div>
+          <div class="term-body"><span class="c">Cursor → Customize → Marketplace</span>
+→ search <span class="ok">AI Coding Guardrails</span>
+→ Install
+
+<span class="c"># or copy into any repo (all tools):</span>
+<span class="p">$</span> curl -fsSL …/install.sh | bash</div>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/aico-platform/ai-coding-guardrails#install-cursor">Cursor install →</a>
+      </div>
+
+      <div class="install-card claude">
+        <p class="platform">Claude Code</p>
+        <h3>Commands + contract skill</h3>
+        <p class="blurb">Slash commands for planning and review, plus a <code>guardrails-contract</code> skill — no Cursor rules; behavior lives in Claude-native surfaces.</p>
+        <div class="term">
+          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">claude code plugin</span></div>
+          <div class="term-body"><span class="p">$</span> /plugin marketplace add aico-platform/ai-coding-guardrails
+<span class="p">$</span> /plugin install ai-coding-guardrails@aico-community
+
+<span class="c"># or copy into any repo (all tools):</span>
+<span class="p">$</span> curl -fsSL …/install.sh | bash</div>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/aico-platform/ai-coding-guardrails#install-claude-code">Claude install →</a>
+      </div>
+    </div>
+
+    <p class="price-hint" style="margin-top:22px;text-align:center">Marketplace listings pending review · <code>curl install.sh</code> works today for repo copy on either IDE</p>
   </div>
 </section>
 
@@ -479,10 +542,10 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
 
     <div class="oss-strip">
       <div>
-        <p class="t">Public — MIT core · curl install · free forever</p>
-        <p class="d">Operating contract, core Cursor rules, PR template, and dogfood demo. Star the repo to follow releases.</p>
+        <p class="t">Public — MIT core · free forever</p>
+        <p class="d">Separate Cursor and Claude Code marketplace plugins, or one <code>curl</code> to copy guardrails into your repo. Star the repo to follow releases.</p>
       </div>
-      <a class="btn btn-primary" href="https://github.com/aico-platform/ai-coding-guardrails">get the free core →</a>
+      <a class="btn btn-primary" href="#install">choose your IDE →</a>
     </div>
 
     <p class="price-hint" style="margin-top:28px;text-align:center">Full Pro + Team OS — private beta (invite only). Pro / Team checkout — after beta, not live yet.</p>
@@ -507,7 +570,7 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
     </details>
     <details>
       <summary>Claude Code or Cursor?</summary>
-      <p>Both, in the same pack. The same standard ships as CLAUDE.md + slash commands for Claude Code and as .mdc rules for Cursor. Codex-style agents can read the shared standard docs too — they're plain markdown.</p>
+      <p>Both — as <b>separate MIT plugins</b>, not one blended bundle. Cursor gets always-on <code>.mdc</code> rules plus commands; Claude Code gets slash commands and a contract skill (Claude doesn't use Cursor rules). Prefer marketplace install for your IDE, or use <code>curl install.sh</code> to copy the full pack into a repo. Codex-style agents can read the shared standard docs — plain markdown.</p>
     </details>
     <details>
       <summary>Will this slow my agent down?</summary>
@@ -534,18 +597,26 @@ footer .logo{font-size:22px;display:block;margin-bottom:10px}
 
 <section class="final" id="buy">
   <div class="wrap">
-    <div class="term">
-      <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">install — 5 minutes</span></div>
-      <div class="term-body"><span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/aico-platform/ai-coding-guardrails/main/install.sh | bash
-<span class="p">$</span> <span class="c"># optional Team OS (Pro/Team): bash team-os/scripts/install_team_os.sh</span>
-<span class="p">$</span> <span class="c"># adapt verification commands · 1 file · 2 minutes</span>
-<span class="ok">✓ your agents are now under contract</span><span class="cursor"></span></div>
+    <div class="install-grid" style="max-width:760px;margin:0 auto 34px">
+      <div class="term">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">cursor</span></div>
+        <div class="term-body"><span class="c">Customize → Marketplace → AI Coding Guardrails</span>
+<span class="c"># repo copy:</span>
+<span class="p">$</span> curl -fsSL …/install.sh | bash</div>
+      </div>
+      <div class="term">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">claude code</span></div>
+        <div class="term-body"><span class="p">$</span> /plugin install ai-coding-guardrails@aico-community
+<span class="c"># repo copy:</span>
+<span class="p">$</span> curl -fsSL …/install.sh | bash</div>
+      </div>
     </div>
     <h2>Make your agents earn "done."</h2>
     <div class="cta-row" style="margin-top:26px">
-      <a class="btn btn-primary" href="https://github.com/aico-platform/ai-coding-guardrails">get it free on github →</a>
+      <a class="btn btn-primary" href="#install">install for your IDE →</a>
+      <a class="btn btn-ghost" href="https://github.com/aico-platform/ai-coding-guardrails">view on github</a>
     </div>
-    <p class="price-hint" style="margin-top:12px">Free MIT core · full Pro + Team OS — private beta by invite</p>
+    <p class="price-hint" style="margin-top:12px">MIT core · full Pro + Team OS — private beta by invite</p>
   </div>
 </section>
 
