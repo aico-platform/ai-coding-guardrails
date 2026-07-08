@@ -1,0 +1,23 @@
+{
+  "name": "ai-coding-guardrails",
+  "version": "1.2.0",
+  "description": "Plan-before-code, risk classification, and validation evidence for Cursor agents. MIT free core.",
+  "author": {
+    "name": "AICO Platform",
+    "email": "hello@aico.dev"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/aico-platform/ai-coding-guardrails",
+  "repository": "https://github.com/aico-platform/ai-coding-guardrails",
+  "keywords": [
+    "guardrails",
+    "agent",
+    "risk",
+    "testing",
+    "code-review",
+    "workflow"
+  ],
+  "logo": "assets/before-after.svg",
+  "rules": "rules",
+  "commands": "commands"
+}

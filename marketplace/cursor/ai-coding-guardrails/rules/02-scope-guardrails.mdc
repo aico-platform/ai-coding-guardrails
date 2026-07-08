@@ -1,0 +1,14 @@
+---
+description: Limits on change size and scope. Always applies.
+alwaysApply: true
+---
+
+# Scope Guardrails
+
+- Default to the **smallest safe diff** that satisfies the request.
+- Touch at most **10 files** unless a broad refactor was explicitly requested.
+- If more than 10 files are genuinely required: **stop**, present a plan with justification, and wait.
+- Never change unrelated files. Never reformat files you are not otherwise editing.
+- Never introduce new frameworks, dependencies, or architectural patterns unless asked. Follow the conventions already in the repository.
+- No drive-by refactors: a bug fix does not need surrounding cleanup. Note improvement opportunities in the output instead of doing them.
+- Prefer short, pure functions; avoid side effects unless the task requires them.

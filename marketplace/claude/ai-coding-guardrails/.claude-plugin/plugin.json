@@ -1,0 +1,22 @@
+{
+  "name": "ai-coding-guardrails",
+  "version": "1.2.0",
+  "description": "Slash commands and skills for plan-before-code, risk levels, and evidence-first agent output in Claude Code. MIT free core.",
+  "author": {
+    "name": "AICO Platform",
+    "email": "hello@aico.dev"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/aico-platform/ai-coding-guardrails",
+  "repository": "https://github.com/aico-platform/ai-coding-guardrails",
+  "keywords": [
+    "guardrails",
+    "claude-code",
+    "planning",
+    "risk",
+    "testing",
+    "workflow"
+  ],
+  "commands": "commands",
+  "skills": "skills"
+}
